@@ -1,7 +1,14 @@
 import { connect } from "react-redux";
-import { RootState } from "../../store/store";
-import { Music } from "../../interfaces/Music";
+import { AppState } from "../../store/store";
 import ListItem from "./ListItem";
+
+interface Music {
+  id: number;
+  title: string;
+  artist: string;
+  path: string;
+  image?: string;
+}
 
 interface Props {
   items: Array<Music>;
@@ -57,7 +64,7 @@ function CismuPlayerPlaylist(props: Props) {
   );
 }
 
-function mapStateToProps(state: RootState) {
+function mapStateToProps(state: AppState) {
   const { state_playlist } = state;
   return {
     items: state_playlist.items,

@@ -1,4 +1,6 @@
-export const hola = "";
+export default function ListItem() {
+  return <div></div>;
+}
 // import { AppDispatch, RootState } from "../../../store/store";
 // import { setItems } from "../../../store/slice/PlaylistSlice";
 // import { Music } from "../../../interfaces/Music";

@@ -1,36 +1,37 @@
 import CismuPlayerPlayer from "./CismuPlayer.Player";
-import Player, { WebPlayer } from "../../WebPlayer";
-import { connect } from "react-redux";
-import "./CismuPlayer.scss";
 import React from "react";
 
-interface Props {}
+interface State {
+  AudioTag: HTMLAudioElement | null;
+}
 
-class CismuPlayer extends React.Component {
-  webPlayer: Player;
-  constructor(props: Props) {
+class CismuPlayer extends React.Component<object, State> {
+  AudioElement: React.RefObject<HTMLAudioElement>;
+
+  constructor(props: object) {
     super(props);
-    this.webPlayer = WebPlayer;
+    this.AudioElement = React.createRef();
+    this.state = {
+      AudioTag: null,
+    };
+  }
+
+  componentDidMount(): void {
+    this.setState(() => {
+      return {
+        AudioTag: this.AudioElement.current,
+      };
+    });
   }
 
   render() {
-    let playerProps = {
-      play: () => this.webPlayer.play(),
-      pause: () => this.webPlayer.pause(),
-      stop: () => this.webPlayer.stop(),
-      next: () => this.webPlayer.next(),
-      prev: () => this.webPlayer.prev(),
-      set_music: (index: number) => this.webPlayer.set_music(index),
-      onVolumeChange: (val: number) => (this.webPlayer.volume = val),
-      onCurrentTimeChange: (val: number) => (this.webPlayer.currentTime = val),
-    };
-
     return (
       <div className="cismu-player">
-        <CismuPlayerPlayer {...playerProps} />
+        <audio ref={this.AudioElement}></audio>
+        <CismuPlayerPlayer audio={this.state.AudioTag} />
       </div>
     );
   }
 }
 
-export default connect()(CismuPlayer);
+export default CismuPlayer;

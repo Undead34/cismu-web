@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./store";
+import type { AppState } from "../store";
 
 interface Music {
   id: number;
@@ -94,6 +94,6 @@ export const {
 } = PlaylistSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCurrent = (state: RootState) => state.state_playlist;
+export const selectCurrent = (state: AppState) => state.state_playlist;
 
 export default PlaylistSlice.reducer;

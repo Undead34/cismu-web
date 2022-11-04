@@ -5,7 +5,7 @@ interface PlayerState {
   currentTime: number;
   duration: number;
   paused: boolean;
-  source: string | null;
+  source: string;
   autoplay: boolean;
   playing: boolean;
   playable: boolean;
@@ -17,7 +17,7 @@ const initialState: PlayerState = {
   currentTime: 0,
   duration: 0,
   paused: true,
-  source: null,
+  source: "",
   autoplay: false,
   playing: false,
   playable: false,
@@ -37,11 +37,14 @@ export const PlayerSlice = createSlice({
     setVolume: (state, action: PayloadAction<number>) => {
       state.volume = action.payload;
     },
+    setPlayable: (state, action: PayloadAction<boolean>) => {
+      state.playable = action.payload;
+    },
     storeReset: (state) => {
       state.currentTime = 0;
       state.duration = 0;
       state.paused = true;
-      state.source = null;
+      state.source = "";
       state.autoplay = false;
       state.playing = false;
       state.playable = false;
@@ -50,5 +53,5 @@ export const PlayerSlice = createSlice({
   },
 });
 
-export const { setCurrentTime, setDuration, setVolume, storeReset } = PlayerSlice.actions;
+export const { setCurrentTime, setDuration, setVolume, storeReset, setPlayable } = PlayerSlice.actions;
 export default PlayerSlice.reducer;

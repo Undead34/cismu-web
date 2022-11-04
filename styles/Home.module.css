@@ -10,3 +10,15 @@
   width: 100%;
   height: 100%;
 }
+
+.volumeControlSlider {
+  position: absolute;
+  z-index: 400;
+  left: 0px;
+  top: 0px;
+  pointer-events: auto;
+  transform: translate3d(0px, -100px, 0px);
+  height: 100px;
+  padding: 6px 0;
+  width: 100%;
+}
