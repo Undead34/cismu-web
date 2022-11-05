@@ -4,12 +4,9 @@ import { VolumeUp, Loop, Shuffle, Favorite } from "@mui/icons-material";
 import styles from "../../../styles/Home.module.css";
 import { useState } from "react";
 
-interface Props {
-  play?: () => void;
-  pause?: () => void;
-  stop?: () => void;
-  next?: () => void;
-  prev?: () => void;
+interface ControlsProps {
+  togglePlayPause: () => Promise<boolean>;
+  playable: boolean;
 }
 
 interface LikeProps {
@@ -25,7 +22,7 @@ function Like({ like = false }: LikeProps) {
   );
 }
 
-export function Controls(props: Props) {
+export function Controls(props: ControlsProps) {
   const [controlState, setControlState] = useState({ paused: true });
   let playPauseIcon;
 
@@ -37,13 +34,20 @@ export function Controls(props: Props) {
 
   return (
     <ButtonGroup variant="outlined" aria-label="outlined primary button group">
-      <IconButton>
+      <IconButton disabled={!props.playable}>
         <SkipPrevious />
       </IconButton>
-      <IconButton onClick={() => setControlState({ paused: !controlState.paused })}>
+      <IconButton
+        onClick={() => {
+          if (props.playable) {
+            props.togglePlayPause().then((value) => setControlState({ paused: value }));
+          }
+        }}
+        disabled={!props.playable}
+      >
         {playPauseIcon}
       </IconButton>
-      <IconButton>
+      <IconButton disabled={!props.playable}>
         <SkipNext />
       </IconButton>
     </ButtonGroup>

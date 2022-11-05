@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Hola 👋 bienvenido a Cismu este es un reproductor de musica similar Spotify o cualquier otro servicio de streaming de audio este repositorio en concreto es la version web aunque es casi lo mismo de las version de escritorio que va a estar desarrollada en electron.
+
+Cismu es de codigo abierto y esta enfocado en ser el reproductor mas comodo, personalizable, estable, compatible y rapido (bueno en lo que pueda) que existe tambien va a contar con muchas opciones maravillosas que espero que sean de su agrado.
+
+## Caracteristicas
+
+Entre las caracteristicas se encuentran:
+Soporte para multiples formatos de audio (video porque no?) como FLAC, ACC, MP3, etc..
+Control e
 
 ## Getting Started
 

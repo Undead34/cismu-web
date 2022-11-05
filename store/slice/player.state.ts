@@ -5,7 +5,7 @@ interface PlayerState {
   currentTime: number;
   duration: number;
   paused: boolean;
-  source: string;
+  source: string | null;
   autoplay: boolean;
   playing: boolean;
   playable: boolean;
@@ -17,7 +17,7 @@ const initialState: PlayerState = {
   currentTime: 0,
   duration: 0,
   paused: true,
-  source: "",
+  source: null,
   autoplay: false,
   playing: false,
   playable: false,
@@ -44,7 +44,7 @@ export const PlayerSlice = createSlice({
       state.currentTime = 0;
       state.duration = 0;
       state.paused = true;
-      state.source = "";
+      state.source = null;
       state.autoplay = false;
       state.playing = false;
       state.playable = false;
