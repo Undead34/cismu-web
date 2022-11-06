@@ -1,4 +1,4 @@
-import { setCurrentTime, setDuration, setVolume } from "../store/slice/player.state";
+import { setCurrentTime, setDuration, setVolume } from "../../store/slice/player.state";
 import Playlist from "./Playlist";
 
 interface Music {

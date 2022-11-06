@@ -1,7 +1,7 @@
 import { ButtonGroup, Slider, IconButton, Stack, Button, Grid, Divider } from "@mui/material";
 import { PlayArrow, Pause, SkipPrevious, SkipNext, VolumeMute } from "@mui/icons-material";
 import { VolumeUp, Loop, Shuffle, Favorite } from "@mui/icons-material";
-import styles from "../../../styles/Home.module.css";
+import styles from "../../../../styles/Home.module.css";
 import { useState } from "react";
 
 interface ControlsProps {
