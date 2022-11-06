@@ -1,6 +1,5 @@
 import { Controls, Track, Options } from "./Controls/Controls";
-import { setPlayable } from "../../store/slice/player.state";
-import { AppState, AppDispatch } from "../../store/store";
+import { AppState, AppDispatch } from "../../../store/store";
 import { connect } from "react-redux";
 import { Grid } from "@mui/material";
 import React from "react";
